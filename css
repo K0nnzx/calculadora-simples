@@ -1,0 +1,194 @@
+ /* Início do CSS embutido */
+ body { /* Estilos para a página toda */
+    font-family: 'Arial', sans-serif; /* Fonte */
+    background-color: #e0e0e0; /* Fundo cinza claro */
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Organiza os filhos (header e calculator) em coluna */
+    justify-content: center; /* Centraliza verticalmente (aproximadamente, com min-height) */
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Altura mínima igual à da tela */
+    margin: 0; /* Remove margens padrão */
+    padding: 20px 0; /* Padding vertical para dar espaço ao header/footer */
+}
+
+ /* Estilos para Logo e Cabeçalho (fora da calculadora) */
+ .page-header { /* Div que contém a logo e as infos */
+    text-align: center; /* Centraliza seu conteúdo */
+    margin-bottom: 20px; /* Espaço abaixo do header, antes da calculadora */
+    max-width: 90%; /* Limita largura em telas muito grandes */
+}
+
+.page-header img { /* A imagem da logo */
+    max-width: 300px; /* Largura máxima da logo */
+    height: auto; /* Mantém proporção */
+    margin-bottom: 10px; /* Espaço abaixo da logo */
+}
+
+.header-info { /* Div com as informações de texto */
+    color: #444; /* Cor do texto cinza escuro */
+    font-size: 1em; /* Tamanho da fonte */
+    line-height: 1.4; /* Espaçamento entre linhas */
+}
+ .header-info p { /* Parágrafos dentro das informações */
+     margin: 3px 0; /* Pequeno espaço vertical */
+ }
+
+/* --- Estilos da Calculadora --- */
+.calculator { /* Container da calculadora */
+    background-color: #3a3a3a; /* Fundo cinza bem escuro */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra projetada */
+    width: 320px; /* Largura fixa */
+    padding: 20px; /* Espaçamento interno */
+}
+
+#display { /* O visor da calculadora (<input>) */
+    width: calc(100% - 20px); /* Largura = 100% do pai - 2x o padding horizontal */
+    height: 70px; /* Altura fixa */
+    background-color: #222; /* Fundo preto/cinza muito escuro */
+    color: #fff; /* Texto branco */
+    text-align: right; /* Números alinhados à direita */
+    font-size: 2.5em; /* Tamanho grande da fonte */
+    padding: 0 10px; /* Padding interno só nas laterais */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Espaço abaixo do visor, antes dos botões */
+    box-sizing: border-box; /* Faz com que padding não aumente a largura total */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar o tamanho */
+}
+
+.buttons { /* Container para a grade de botões */
+    display: grid; /* Usa o layout Grid */
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de fração igual (largura igual) */
+    gap: 10px; /* Espaço de 10px entre linhas e colunas da grade */
+}
+
+button { /* Estilo base para todos os botões */
+    height: 60px; /* Altura fixa */
+    font-size: 1.5em; /* Tamanho da fonte nos botões */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão */
+    background-color: #505050; /* Fundo cinza escuro padrão (números) */
+    color: #fff; /* Texto branco */
+    transition: background-color 0.2s; /* Transição suave da cor de fundo no hover */
+}
+
+button:hover { background-color: #686868; } /* Cor ligeiramente mais clara ao passar o mouse */
+button:active { background-color: #7a7a7a; } /* Cor mais clara ainda ao clicar */
+
+/* Estilos específicos para tipos de botão */
+button.operator { background-color: #f09a36; color: white; } /* Laranja para operadores */
+button.operator:hover { background-color: #f3af5b; }
+button.operator:active { background-color: #f5c17d; }
+
+button.equals { background-color: #4CAF50; grid-column: span 2; } /* Verde para '=' e ocupa 2 colunas */
+button.equals:hover { background-color: #66bb6a; }
+button.equals:active { background-color: #81c784; }
+
+button.clear { background-color: #d9534f; } /* Vermelho para 'C' (limpar) */
+button.clear:hover { background-color: #e06c68; }
+button.clear:active { background-color: #e78581; }
+
+.instructions { /* Texto pequeno abaixo da calculadora */
+    color: #bbb; /* Cinza claro */
+    font-size: 0.9em; /* Tamanho pequeno */
+    margin-top: 15px; /* Espaço acima */
+    text-align: center; /* Centralizado */
+}
+
+ /* Responsividade */
+@media (max-width: 400px) { /* Estilos aplicados em telas com largura <= 400px */
+    .page-header img { /* Logo menor */
+        max-width: 240px;
+    }
+    .calculator { /* Calculadora ocupa mais da tela, mas não toda */
+         width: calc(100% - 40px);
+         max-width: 320px; /* Ainda limita a 320px no máximo */
+         padding: 15px; /* Padding interno menor */
+    }
+     #display { /* Visor menor */
+         height: 60px;
+         font-size: 2em;
+     }
+     button { /* Botões menores */
+         height: 55px;
+         font-size: 1.3em;
+     }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    background-color: #222;
+    color: white;
+    text-align: right;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    height: 60px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+button:active {
+    background-color: #999;
+}
+
+button.clear {
+    background-color: #e74c3c;
+}
+
+button.clear:hover {
+    background-color: #c0392b;
+}
+
+button.equals {
+    background-color: #2ecc71;
+    grid-column: span 2;
+}
+
+button.equals:hover {
+    background-color: #27ae60;
+}
+
+button.zero {
+    grid-column: span 2;
+}
